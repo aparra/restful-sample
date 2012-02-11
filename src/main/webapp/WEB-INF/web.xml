@@ -10,7 +10,7 @@
 		<param-name>br.com.caelum.vraptor.packages</param-name>
 		<param-value>
 			br.com.caelum.vraptor.restfulie,
-			br.com.amil.restfull
+			br.com.amil.restful
 		</param-value>
 	</context-param>
 
