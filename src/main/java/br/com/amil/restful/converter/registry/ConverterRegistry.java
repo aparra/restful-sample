@@ -2,6 +2,7 @@ package br.com.amil.restful.converter.registry;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -9,7 +10,7 @@ import javax.annotation.PostConstruct;
 
 import org.apache.commons.lang.ClassUtils;
 
-import br.com.amil.restful.util.ClassLoaderUtils;
+import br.com.amil.util.ClassLoaderUtils;
 import br.com.caelum.vraptor.ioc.Component;
 
 import com.thoughtworks.xstream.converters.Converter;
@@ -22,7 +23,7 @@ public class ConverterRegistry {
 	@PostConstruct
     @SuppressWarnings("unused")
     private void registry() {
-    	for (Class<?> clazz : ClassLoaderUtils.getClassesForPackage("br.com.amil.restful.converter")) {
+    	for (Class<?> clazz : ClassLoaderUtils.getClassesForPackage("br.com.amil.restful.mediatype")) {
     		if (ClassUtils.isAssignable(clazz, Converter.class)) {
     			Registry registry = clazz.getAnnotation(Registry.class);
 
@@ -43,7 +44,7 @@ public class ConverterRegistry {
     	Set<Converter> converters = map.get(key);
     	
     	if (converters == null) {
-    		converters = Collections.emptySet();
+    		converters = new HashSet<Converter>();
     		map.put(key, converters);
     	}
     	
