@@ -24,7 +24,7 @@ public class CustomRestfulXMLSerialization extends RestfulSerialization {
 	private final HttpServletResponse response;
 	private final CustomFormatResolver formatResolver;
 
-    public CustomRestfulXMLSerialization(HttpServletResponse response, TypeNameExtractor extractor, Restfulie restfulie, Configuration config, ProxyInitializer initializer, ConverterRegistry registry, CustomFormatResolver formatResolver, XStreamBuilder builder) {
+    public CustomRestfulXMLSerialization(HttpServletResponse response, TypeNameExtractor extractor, Restfulie restfulie, Configuration config, ProxyInitializer initializer, XStreamBuilder builder, ConverterRegistry registry, CustomFormatResolver formatResolver) {
         super(response, extractor, restfulie, config, initializer, builder);
         this.registry = registry;
         this.formatResolver = formatResolver;
@@ -43,11 +43,11 @@ public class CustomRestfulXMLSerialization extends RestfulSerialization {
 		XStream xStream = super.getXStream();
 
 		for (Converter converter : registry.load(formatResolver.getVendor())) {
-            xStream.registerConverter(converter);    
+            xStream.registerConverter(converter, XStream.PRIORITY_LOW);    
         }
 
 		for (Converter converter : registry.load("base.converters")) {
-		    xStream.registerConverter(converter);
+		    xStream.registerConverter(converter, XStream.PRIORITY_LOW);
         }
 		
 		return xStream;
