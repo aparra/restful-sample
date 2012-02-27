@@ -1,4 +1,4 @@
-package br.com.amil.restful.util;
+package br.com.amil.util;
 
 import java.io.File;
 import java.net.URL;
