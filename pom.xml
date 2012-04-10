@@ -118,6 +118,8 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		
+		<outputDirectory>${basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>		
 	</build>
 
 	<properties>
