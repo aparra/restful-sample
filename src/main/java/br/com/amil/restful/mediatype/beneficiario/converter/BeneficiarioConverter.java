@@ -27,6 +27,7 @@ public class BeneficiarioConverter implements Converter {
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
+		writeNode(writer, "id", beneficiario.getId());
 		writeNode(writer, "nome", beneficiario.getNome());
 		writeNode(writer, "cpf", beneficiario.getCpf());
 		writeNode(writer, "dataNascimento", dateFormat.format(beneficiario.getDataNascimento()));

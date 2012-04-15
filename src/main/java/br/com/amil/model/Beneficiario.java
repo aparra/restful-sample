@@ -7,12 +7,18 @@ public class Beneficiario implements Serializable {
 
 	private static final long serialVersionUID = 8388084447122036772L;
 	
+	private Long id;
 	private String nome;
 	private Long cpf;
 	private Date dataNascimento;
 	private String modalidade;
 	
-	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
