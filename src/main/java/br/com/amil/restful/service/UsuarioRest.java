@@ -23,12 +23,14 @@ public class UsuarioRest {
 
 	@Get("")
 	public void usuario() {
+		System.out.println(" entrou aqui ");
 		Usuario usuario = new Usuario();
 		usuario.setLogin("meu_login");
 		usuario.setSenha("123qwe");
 		usuario.setUltimoAcesso(new Date());
-		
+
 		result.use(representation()).from(new UsuarioMediaType(usuario)).recursive().serialize();
+		result.nothing();
 	}
 	
 }
