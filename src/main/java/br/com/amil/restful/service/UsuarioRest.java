@@ -27,8 +27,13 @@ public class UsuarioRest {
 		usuario.setLogin("meu_login");
 		usuario.setSenha("123qwe");
 		usuario.setUltimoAcesso(new Date());
-		
+
 		result.use(representation()).from(new UsuarioMediaType(usuario)).recursive().serialize();
+		result.nothing();
+	}
+	
+	public void listarBeneficiarios() {
+		
 	}
 	
 }
