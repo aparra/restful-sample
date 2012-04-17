@@ -28,6 +28,8 @@ public class UsuarioConverter implements Converter {
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
+		writeNode(writer, "id", usuario.getId());
+		writeNode(writer, "nome", usuario.getNome());
 		writeNode(writer, "login", usuario.getLogin());
 		writeNode(writer, "ultimoAcesso", dateFormat.format(usuario.getUltimoAcesso()));
 		writeNode(writer, "senha", CryptUtils.encrypt(usuario.getSenha()));
